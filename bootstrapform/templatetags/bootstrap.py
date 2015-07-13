@@ -20,10 +20,11 @@ def bootstrap_inline(element):
 
 
 @register.filter
-def bootstrap_horizontal(element, label_cols='col-sm-2 col-lg-2'):
+def bootstrap_horizontal(element, label_class='col-sm-2 col-lg-2',):
 
-    markup_classes = {'label': label_cols, 'value': '', 'single_value': ''}
-
+    label_cols = ' '.join([x for x in label_class.split(' ') if x.startswith('col-')])
+    other_class = ' '.join([x for x in label_class.split(' ') if not x.startswith('col-')])
+    markup_classes = {'label': ' '.join([label_cols, other_class]), 'value': other_class, 'single_value': ''}
     for cl in label_cols.split(' '):
         splitted_class = cl.split('-')
 
@@ -50,7 +51,7 @@ def add_input_classes(field):
     if not is_checkbox(field) and not is_multiple_checkbox(field) \
        and not is_radio(field) and not is_file(field):
         field_classes = field.field.widget.attrs.get('class', '')
-        field_classes += ' form-control'
+        field_classes += '' if field.field.widget.attrs.pop('nofc', False) else ' form-control'
         field.field.widget.attrs['class'] = field_classes
 
 
