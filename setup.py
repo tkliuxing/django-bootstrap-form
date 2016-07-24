@@ -2,9 +2,9 @@ from setuptools import setup, find_packages
 from bootstrapform.meta import VERSION
 
 setup(
-    name='django-bootstrap-form',
+    name='django-bootstrap-form-tkliuxing',
     version=str(VERSION),
-    description="django-bootstrap-form",
+    description="django-bootstrap-form-tkliuxing",
     classifiers=[
         "Programming Language :: Python",
         "Topic :: Software Development :: Libraries :: Python Modules",
@@ -17,9 +17,9 @@ setup(
         "Programming Language :: Python :: 3.4",
     ],
     keywords='bootstrap,django',
-    author='tzangms',
-    author_email='tzangms@gmail.com',
-    url='http://github.com/tzangms/django-bootstrap-form',
+    author='tkliuxing',
+    author_email='ouyanghongyu@gmail.com',
+    url='http://github.com/tkliuxing/django-bootstrap-form',
     license='BSD',
     test_suite='runtests.runtests',
     install_requires = [
